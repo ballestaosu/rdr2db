@@ -1,0 +1,31 @@
+<html>
+    <head>
+        {% if title %}
+        <title>{{ title }} - RDR2 DB</title>
+        {% else %}
+        <title>Welcome to RDR2 DB</title>
+        {% endif %}
+    </head>
+    <body>
+        <div>Red Dead Redemption 2 Database: 
+            <a href="{{ url_for('index') }}">Home</a>
+            <a href="{{ url_for('login') }}">Login</a>
+            <a href="{{ url_for('users') }}">Users</a>
+            <a href="{{ url_for('characters') }}">Characters</a>
+            <a href="{{ url_for('weapons') }}">Weapons</a>
+            <a href="{{ url_for('horses') }}">Horses</a>
+            <a href="{{ url_for('locations') }}">Locations</a>
+            <a href="{{ url_for('leg_animals') }}">Legendary Animals</a>
+        </div>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul>
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+        {% block content %}{% endblock %}
+    </body>
+</html>
