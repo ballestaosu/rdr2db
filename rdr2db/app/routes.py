@@ -4,6 +4,7 @@ from db_connector.db_connector import connect_to_database, execute_query
 from app.forms import LoginForm
 
 app = Flask(__name__)
+app.config['SECRET_KEY'] = 'super secret key'
 bootstrap = Bootstrap(app)
 
 
