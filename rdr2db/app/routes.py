@@ -1,5 +1,5 @@
 from flask import render_template, flash, redirect, url_for, request, redirect, Flask
-from flask import Bootstrap
+from flask_bootstrap import Bootstrap
 from db_connector.db_connector import connect_to_database, execute_query
 from app.forms import LoginForm
 
