@@ -1,31 +1,41 @@
-<html>
-    <head>
-        {% if title %}
-        <title>{{ title }} - RDR2 DB</title>
-        {% else %}
-        <title>Welcome to RDR2 DB</title>
-        {% endif %}
-    </head>
-    <body>
-        <div>Red Dead Redemption 2 Database: 
-            <a href="{{ url_for('index') }}">Home</a>
-            <a href="{{ url_for('login') }}">Login</a>
-            <a href="{{ url_for('users') }}">Users</a>
-            <a href="{{ url_for('characters') }}">Characters</a>
-            <a href="{{ url_for('weapons') }}">Weapons</a>
-            <a href="{{ url_for('horses') }}">Horses</a>
-            <a href="{{ url_for('locations') }}">Locations</a>
-            <a href="{{ url_for('leg_animals') }}">Legendary Animals</a>
+{% extends 'bootstrap/base.html' %}
+
+<link rel= "stylesheet" type="text/css" href="{{ url_for('static',filename='styles/rd.css') }}">
+
+{% block title %}
+    {% if title %}{{ title }} - RDR2 DB{% else %}Welcome to RDR2 DB{% endif %}
+{% endblock %}
+
+{% block navbar %}
+    <nav class="navbar navbar-expand-md navbar-dark bg-danger">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <span class="navbar-brand">Red Dead Redemption 2 Database</span>
+            </div>
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="{{ url_for('index') }}">Home <span class="sr-only">(current)</span></a></li>
+                <li><a href="{{ url_for('login') }}">Login</a></li>
+                <li><a href="{{ url_for('users') }}">Users</a></li>
+                <li><a href="{{ url_for('characters') }}">Characters</a></li>
+                <li><a href="{{ url_for('weapons') }}">Weapons</a></li>
+                <li><a href="{{ url_for('horses') }}">Horses</a></li>
+                <li><a href="{{ url_for('locations') }}">Locations</a></li>
+                <li><a href="{{ url_for('leg_animals') }}">Legendary Animals</a></li>
+            </ul>
         </div>
+    </nav>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
         {% with messages = get_flashed_messages() %}
         {% if messages %}
-        <ul>
             {% for message in messages %}
-            <li>{{ message }}</li>
+            <div class="alert alert-info" role="alert">{{ message }}</div>
             {% endfor %}
-        </ul>
         {% endif %}
         {% endwith %}
-        {% block content %}{% endblock %}
-    </body>
-</html>
+
+        {% block app_content %}{% endblock %}
+    </div>
+{% endblock %}
