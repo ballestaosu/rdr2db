@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block app_content %}
+
+    <!-- Table -->
+    <table>
+        <thead>
+            <tr>
+                <th>Horse ID</th>
+                <th>Horse Type</th>
+                <th>Horse Class</th>
+                <th>Horse Size</th>
+                <th>Location</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><input type="number" placeholder="ID"></td>
+                <td><input type="text" placeholder="Type"></td>
+                <td><select name="class" id="class">
+                    <option value="work">Work</option>
+                    <option value="race">Race</option>
+                    <option value="war">War</option>
+                    <option value="riding">Riding</option>
+                    </select></td>
+                <td><select name="size" id="size">
+                    <option value="s">S</option>
+                    <option value="m">M</option>
+                    <option value="l">L</option>
+                    </select></td>
+                <td><input type="number" placeholder="Location"></td>
+                <td><button type="button" class="btn btn-success btn-sm">Add</button></td>
+            </tr>
+        </tbody>
+
+    </table>
+
+
+    <div class="panel panel-default">
+        <div class="panel-heading">Horses</div>
+
+        <!-- Table -->
+        <table class="table" style="width:80%; margin-left: auto; margin-right: auto;">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="row">Horse ID</th>
+                    <th scope="row">Horse Type</th>
+                    <th scope="row">Horse Class</th>
+                    <th scope="row">Horse Size</th>
+                    <th scope="row">Location</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Mustang</td>
+                    <td>War</td>
+                    <td>L</td>
+                    <td>2</td>
+                    <td><button type="submit" class="btn btn-primary">Update</button></td>
+                    <td><button type="submit" class="btn btn-primary">Delete</button></td>
+                </tr>
+
+            </tbody>
+        
+        </table>
+    </div>
+{% endblock %}}

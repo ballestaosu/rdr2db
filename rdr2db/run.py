@@ -1,1 +1,1 @@
-from rdead.app.__init__ import app
+from app.__init__ import app
